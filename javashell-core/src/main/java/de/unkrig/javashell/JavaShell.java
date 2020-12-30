@@ -40,23 +40,23 @@ public class JavaShell {
 	// ----------------------------------------------------------------------------------------------------------------
 	
 	@SafeVarargs public static <T> T
-	bytePipe(ByteFilter<? extends T>... pipes) throws IOException {
-		return JavaShell.bytePipe_(pipes).execute(System.in, System.out);
+	byteFilter(ByteFilter<? extends T>... pipes) throws IOException {
+		return JavaShell.byteFilter_(pipes).execute(System.in, System.out);
 	}
 	
 	@SafeVarargs public static <T> T
-	bytePipe(InputStream in, ByteFilter<? extends T>... pipes) throws IOException {
-		return JavaShell.bytePipe_(pipes).execute(in, System.out);
+	byteFilter(InputStream in, ByteFilter<? extends T>... pipes) throws IOException {
+		return JavaShell.byteFilter_(pipes).execute(in, System.out);
 	}
 	
 	@SafeVarargs public static <T> T
-	bytePipe(OutputStream out, ByteFilter<? extends T>... pipes) throws IOException {
-		return JavaShell.bytePipe_(pipes).execute(System.in, out);
+	byteFilter(OutputStream out, ByteFilter<? extends T>... pipes) throws IOException {
+		return JavaShell.byteFilter_(pipes).execute(System.in, out);
 	}
 
 	@SafeVarargs public static <T> T
-	bytePipe(InputStream in, OutputStream out, ByteFilter<? extends T>... pipes) throws IOException {
-		return JavaShell.bytePipe_(pipes).execute(in, out);
+	byteFilter(InputStream in, OutputStream out, ByteFilter<? extends T>... pipes) throws IOException {
+		return JavaShell.byteFilter_(pipes).execute(in, out);
 	}
 
 	/**
@@ -71,19 +71,19 @@ public class JavaShell {
 	 * @param closeOut          Whether <var>out</var> should be closed when <var>pipes</var>{@code [N-1]} completes
 	 * @return                  The return value produced by <var>pipes</var>{@code [N-1]}
 	 * @throws RuntimeException The exception produced by <var>pipes</var>{@code [N-1]}
-	 * @see                     #bytePipe2_(boolean, boolean, ByteFilter[])
+	 * @see                     #byteFilter2_(boolean, boolean, ByteFilter[])
 	 */
 	@SafeVarargs public static <T> T
-	bytePipe(InputStream in, boolean closeIn, OutputStream out, boolean closeOut, ByteFilter<? extends T>... pipes) throws IOException {
-		return JavaShell.bytePipe_(closeIn, closeOut, pipes).execute(in, out);
+	byteFilter(InputStream in, boolean closeIn, OutputStream out, boolean closeOut, ByteFilter<? extends T>... pipes) throws IOException {
+		return JavaShell.byteFilter_(closeIn, closeOut, pipes).execute(in, out);
 	}
 	
 	/**
-	 * Equivalent with {@link #bytePipe_(boolean, boolean, ByteFilter[]) bytePipe(true, false, pipes)}.
+	 * Equivalent with {@link #byteFilter_(boolean, boolean, ByteFilter[]) byteFilter(true, false, pipes)}.
 	 */
 	@SafeVarargs public static <T> ByteFilter<? extends T>
-	bytePipe_(ByteFilter<? extends T>... pipes) throws IOException {
-		return bytePipe_(/*closeIn*/ true, /*closeOut*/ false, pipes);
+	byteFilter_(ByteFilter<? extends T>... pipes) throws IOException {
+		return byteFilter_(/*closeIn*/ true, /*closeOut*/ false, pipes);
 	}
 
 	/**
@@ -98,10 +98,10 @@ public class JavaShell {
 	 * @param closeOut          Whether <var>out</var> should be closed when <var>pipes</var>{@code [N-1]} completes
 	 * @return                  The return value produced by <var>pipes</var>{@code [N-1]}
 	 * @throws RuntimeException The exception produced by <var>pipes</var>{@code [N-1]}
-	 * @see                     #bytePipe2_(boolean, boolean, ByteFilter[])
+	 * @see                     #byteFilter2_(boolean, boolean, ByteFilter[])
 	 */
 	@SafeVarargs public static <T> ByteFilter<? extends T>
-	bytePipe_(boolean closeIn, boolean closeOut, ByteFilter<? extends T>... pipes) throws IOException {
+	byteFilter_(boolean closeIn, boolean closeOut, ByteFilter<? extends T>... pipes) throws IOException {
 	
 		switch (pipes.length) {
 		
@@ -129,11 +129,11 @@ public class JavaShell {
 	}
 
 	/**
-	 * Equivalent with {@link #bytePipe2_(boolean, boolean, ByteFilter[]) pipe2(true, false, pipes)}.
+	 * Equivalent with {@link #byteFilter2_(boolean, boolean, ByteFilter[]) pipe2(true, false, pipes)}.
 	 */
 	@SafeVarargs public static <T> ByteFilter<? extends T>
-	bytePipe2_(ByteFilter<? extends T>... pipes) throws IOException {
-		return bytePipe2_(/*closeIn*/ true, /*closeOut*/ false, pipes);
+	byteFilter2_(ByteFilter<? extends T>... pipes) throws IOException {
+		return byteFilter2_(/*closeIn*/ true, /*closeOut*/ false, pipes);
 	}
 
 	/**
@@ -147,10 +147,10 @@ public class JavaShell {
 	 * @param closeOut          Whether <var>out</var> should be closed when <var>pipes</var>{@code [N-1]} completes
 	 * @return                  The return value produced by <var>pipes</var>{@code [0]}
 	 * @throws RuntimeException The exception produced by <var>pipes</var>{@code [0]}
-	 * @see                     #bytePipe_(boolean, boolean, ByteFilter[])
+	 * @see                     #byteFilter_(boolean, boolean, ByteFilter[])
 	 */
 	@SafeVarargs public static <T> ByteFilter<? extends T>
-	bytePipe2_(boolean closeIn, boolean closeOut, ByteFilter<? extends T>... pipes) throws IOException {
+	byteFilter2_(boolean closeIn, boolean closeOut, ByteFilter<? extends T>... pipes) throws IOException {
 	
 		switch (pipes.length) {
 		
@@ -218,23 +218,23 @@ public class JavaShell {
 	// ----------------------------------------------------------------------------------------------------------------
 	
 	@SafeVarargs public static <T> T
-	charPipe(CharFilter<? extends T>... pipes) throws IOException {
-		return JavaShell.charPipe_(pipes).execute(System.in, System.out);
+	charFilter(CharFilter<? extends T>... pipes) throws IOException {
+		return JavaShell.charFilter_(pipes).execute(System.in, System.out);
 	}
 	
 	@SafeVarargs public static <T> T
-	charPipe(Reader in, CharFilter<? extends T>... pipes) throws IOException {
-		return JavaShell.charPipe_(pipes).execute(in, System.out);
+	charFilter(Reader in, CharFilter<? extends T>... pipes) throws IOException {
+		return JavaShell.charFilter_(pipes).execute(in, System.out);
 	}
 	
 	@SafeVarargs public static <T> T
-	charPipe(Writer out, CharFilter<? extends T>... pipes) throws IOException {
-		return JavaShell.charPipe_(pipes).execute(System.in, out);
+	charFilter(Writer out, CharFilter<? extends T>... pipes) throws IOException {
+		return JavaShell.charFilter_(pipes).execute(System.in, out);
 	}
 
 	@SafeVarargs public static <T> T
-	charPipe(Reader in, Writer out, CharFilter<? extends T>... pipes) throws IOException {
-		return JavaShell.charPipe_(pipes).execute(in, out);
+	charFilter(Reader in, Writer out, CharFilter<? extends T>... pipes) throws IOException {
+		return JavaShell.charFilter_(pipes).execute(in, out);
 	}
 
 	/**
@@ -249,19 +249,19 @@ public class JavaShell {
 	 * @param closeOut          Whether <var>out</var> should be closed when <var>pipes</var>{@code [N-1]} completes
 	 * @return                  The return value produced by <var>pipes</var>{@code [N-1]}
 	 * @throws RuntimeException The exception produced by <var>pipes</var>{@code [N-1]}
-	 * @see                     #charPipe2_(boolean, boolean, CharFilter[])
+	 * @see                     #charFilter2_(boolean, boolean, CharFilter[])
 	 */
 	@SafeVarargs public static <T> T
-	charPipe(Reader in, boolean closeIn, Writer out, boolean closeOut, CharFilter<? extends T>... pipes) throws IOException {
-		return JavaShell.charPipe_(closeIn, closeOut, pipes).execute(in, out);
+	charFilter(Reader in, boolean closeIn, Writer out, boolean closeOut, CharFilter<? extends T>... pipes) throws IOException {
+		return JavaShell.charFilter_(closeIn, closeOut, pipes).execute(in, out);
 	}
 
 	/**
-	 * Equivalent with {@link #charPipe_(boolean, boolean, CharFilter[]) charPipe(true, false, pipes)}.
+	 * Equivalent with {@link #charFilter_(boolean, boolean, CharFilter[]) charFilter(true, false, pipes)}.
 	 */
 	@SafeVarargs public static <T> CharFilter<? extends T>
-	charPipe_(CharFilter<? extends T>... pipes) throws IOException {
-		return JavaShell.charPipe_(/*closeIn*/ true, /*closeOut*/ false, pipes);
+	charFilter_(CharFilter<? extends T>... pipes) throws IOException {
+		return JavaShell.charFilter_(/*closeIn*/ true, /*closeOut*/ false, pipes);
 	}
 
 	/**
@@ -276,10 +276,10 @@ public class JavaShell {
 	 * @param closeOut          Whether <var>out</var> should be closed when <var>pipes</var>{@code [N-1]} completes
 	 * @return                  The return value produced by <var>pipes</var>{@code [N-1]}
 	 * @throws RuntimeException The exception produced by <var>pipes</var>{@code [N-1]}
-	 * @see                     #charPipe2_(boolean, boolean, CharFilter[])
+	 * @see                     #charFilter2_(boolean, boolean, CharFilter[])
 	 */
 	@SafeVarargs public static <T> CharFilter<? extends T>
-	charPipe_(boolean closeIn, boolean closeOut, CharFilter<? extends T>... pipes) throws IOException {
+	charFilter_(boolean closeIn, boolean closeOut, CharFilter<? extends T>... pipes) throws IOException {
 	
 		switch (pipes.length) {
 		
@@ -310,11 +310,11 @@ public class JavaShell {
 	}
 
 	/**
-	 * Equivalent with {@link #charPipe2_(boolean, boolean, CharFilter[]) charPipe2(true, false, pipes)}.
+	 * Equivalent with {@link #charFilter2_(boolean, boolean, CharFilter[]) charFilter2(true, false, pipes)}.
 	 */
 	@SafeVarargs public static <T> T
-	charPipe2(Reader in, Writer out, CharFilter<? extends T>... pipes) throws IOException {
-		return JavaShell.charPipe2_(pipes).execute(in, out);
+	charFilter2(Reader in, Writer out, CharFilter<? extends T>... pipes) throws IOException {
+		return JavaShell.charFilter2_(pipes).execute(in, out);
 	}
 
 	/**
@@ -329,19 +329,19 @@ public class JavaShell {
 	 * @param closeOut          Whether <var>out</var> should be closed when <var>pipes</var>{@code [N-1]} completes
 	 * @return                  The return value produced by <var>pipes</var>{@code [N-1]}
 	 * @throws RuntimeException The exception produced by <var>pipes</var>{@code [N-1]}
-	 * @see                     #charPipe2_(boolean, boolean, CharFilter[])
+	 * @see                     #charFilter2_(boolean, boolean, CharFilter[])
 	 */
 	@SafeVarargs public static <T> T
-	charPipe2(Reader in, boolean closeIn, Writer out, boolean closeOut, CharFilter<? extends T>... pipes) throws IOException {
-		return JavaShell.charPipe2_(closeIn, closeOut, pipes).execute(in, out);
+	charFilter2(Reader in, boolean closeIn, Writer out, boolean closeOut, CharFilter<? extends T>... pipes) throws IOException {
+		return JavaShell.charFilter2_(closeIn, closeOut, pipes).execute(in, out);
 	}
 
 	/**
-	 * Equivalent with {@link #charPipe2_(boolean, boolean, CharFilter[]) pipe(true, false, pipes)}.
+	 * Equivalent with {@link #charFilter2_(boolean, boolean, CharFilter[]) pipe(true, false, pipes)}.
 	 */
 	@SafeVarargs public static <T> CharFilter<? extends T>
-	charPipe2_(CharFilter<? extends T>... pipes) throws IOException {
-		return charPipe2_(/*closeIn*/ true, /*closeOut*/ false, pipes);
+	charFilter2_(CharFilter<? extends T>... pipes) throws IOException {
+		return charFilter2_(/*closeIn*/ true, /*closeOut*/ false, pipes);
 	}
 
 	/**
@@ -355,10 +355,10 @@ public class JavaShell {
 	 * @param closeOut          Whether <var>out</var> should be closed when <var>pipes</var>{@code [N-1]} completes
 	 * @return                  The return value produced by <var>pipes</var>{@code [0]}
 	 * @throws RuntimeException The exception produced by <var>pipes</var>{@code [0]}
-	 * @see                     #charPipe_(boolean, boolean, CharFilter[])
+	 * @see                     #charFilter_(boolean, boolean, CharFilter[])
 	 */
 	@SafeVarargs public static <T> CharFilter<? extends T>
-	charPipe2_(boolean closeIn, boolean closeOut, CharFilter<? extends T>... pipes) throws IOException {
+	charFilter2_(boolean closeIn, boolean closeOut, CharFilter<? extends T>... pipes) throws IOException {
 	
 		switch (pipes.length) {
 		
