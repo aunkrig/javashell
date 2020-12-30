@@ -1,5 +1,5 @@
 
-package de.unkrig.javashell.test;
+package de.unkrig.javashell.core.test;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
