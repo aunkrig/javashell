@@ -29,8 +29,8 @@ import org.junit.Test;
 import de.unkrig.commons.file.FileUtil;
 import de.unkrig.commons.io.InputStreams;
 import de.unkrig.commons.io.Readers;
-import de.unkrig.javashell.CharFilter;
-import de.unkrig.javashell.JavaShell;
+import de.unkrig.javashell.core.CharFilter;
+import de.unkrig.javashell.core.JavaShell;
 
 public
 class TestJavaShell {
