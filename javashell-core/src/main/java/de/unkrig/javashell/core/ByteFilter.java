@@ -1,5 +1,5 @@
 
-package de.unkrig.javashell;
+package de.unkrig.javashell.core;
 
 import java.io.IOException;
 import java.io.InputStream;
