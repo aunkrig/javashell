@@ -660,6 +660,28 @@ public class JavaShell {
 	}
 	
 	// ----------------------------------------------------------------------------------------------------------------
+	
+	public static int
+	tr(InputStream in, byte pattern, byte replacement, OutputStream out) throws IOException {
+		int count = 0;
+		for (;;) {
+			int b = in.read();
+			if (b == -1) break;
+			if ((byte) b == pattern) {
+				b = replacement;
+				count++;
+			}
+			out.write(b);
+		}
+		return count;
+	}
+
+	public static ByteFilter<Integer>
+	tr_(byte pattern, byte replacement) {
+		return (in, out) -> tr(in, pattern, replacement, out);
+	}
+
+	// ----------------------------------------------------------------------------------------------------------------
 
 	public static int
 	wcL(Reader in) throws IOException {
